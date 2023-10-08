@@ -6,8 +6,8 @@ const message = ref('hello world');
 onMounted(async () => {
   try {
     const res = await fetch('/api/message');
-    const data = await res.json();
-    message.value = data.message;
+    const data = await res.text();
+    message.value = data;
   } catch {
     message.value = '获取失败';
   }
